@@ -55,15 +55,21 @@ gfx-backend-vulkan = { version = "0.5", features = ["x11"] }
 cgmath = "0.17"
 log = "0.4"
 png = "0.16"
-winit = { version = "0.22.1", features = ["web-sys"] }
+winit = { git = "https://github.com/msiglreith/winit.git", branch = "ndk" }
 rand = { version = "0.7.2", features = ["wasm-bindgen"] }
 bytemuck = "1"
 noise = "0.6.0"
+ndk-glue = "0.2"
 
 [[example]]
 name="hello-compute"
 path="examples/hello-compute/main.rs"
 test = true
+
+[[example]]
+name="hello_triangle"
+path="examples/hello-triangle/main.rs"
+crate-type = ["cdylib"]
 
 [patch."https://github.com/gfx-rs/wgpu"]
 #wgpu-types = { version = "0.5.0", path = "../wgpu/wgpu-types" }
